@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { AppWrap, NavWrap, NavItem } from './AppBar.styled';
 
 const navItems = [
