@@ -9,7 +9,7 @@ export const Home = () => {
   useEffect(() => {
     apiTrending()
       .then(setTrendingList)
-      .catch(error => error.massege);
+      .catch(error => error.message);
   }, []);
 
   return (

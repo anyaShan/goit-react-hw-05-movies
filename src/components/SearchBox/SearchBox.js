@@ -4,6 +4,7 @@ export const SearchBox = ({ value, onChange }) => {
   return (
     <Wrapper>
       <SearchInput
+        name="query"
         type="text"
         value={value}
         placeholder="Search movie"
