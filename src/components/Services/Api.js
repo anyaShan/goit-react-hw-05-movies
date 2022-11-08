@@ -16,8 +16,8 @@ const PIXABAY_KEY = `47d4e1a1a10be98644abcf2b38417f6e`;
 export async function apiTrending() {
   const fetch = `trending/movie/day?api_key=${PIXABAY_KEY}`;
   const respons = await axios.get(fetch);
-  console.log(respons);
-  return respons;
+  //   console.log(respons.data.results);
+  return respons.data.results;
 }
 
 // https://api.themoviedb.org/3/trending/movie/day?api_key=47d4e1a1a10be98644abcf2b38417f6e

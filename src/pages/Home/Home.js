@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { apiTrending } from 'components/Services/Api';
+import { MainContainer } from 'components/MainContainer/MainContainer';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 // import { Outlet } from 'react-router-dom';
 // import { AppBar } from 'components/AppBar/AppBar';
 // import { LayoutWrap } from './Layout.stuled';
@@ -8,19 +10,14 @@ export const Home = () => {
   const [moviesTrendingList, setTrendingList] = useState([]);
 
   useEffect(() => {
-    apiTrending().then(respons => {
-      const { data } = respons;
-      const { results } = data;
-      setTrendingList([...results]);
-    });
-  });
+    apiTrending()
+      .then(setTrendingList)
+      .catch(error => error.massege);
+  }, []);
+
   return (
-    <div>
-      <ul>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-      </ul>
-    </div>
+    <MainContainer>
+      <MoviesList moviesList={moviesTrendingList} />
+    </MainContainer>
   );
 };
