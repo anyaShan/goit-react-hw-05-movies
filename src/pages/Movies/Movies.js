@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { apiTrending } from 'components/Services/Api';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchBox } from 'components/SearchBox/SearchBox';
