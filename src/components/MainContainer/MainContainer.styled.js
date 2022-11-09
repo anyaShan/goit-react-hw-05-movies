@@ -5,7 +5,7 @@ export const Main = styled.div`
   grid-template-columns: repeat(auto-fit, 200px);
   gap: 10px; */
 
-  width: 100%;
+  /* width: 100%; */
   padding: 0 24px;
 
   /* display: flex;

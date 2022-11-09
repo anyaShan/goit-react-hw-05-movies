@@ -2,12 +2,12 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { getMovieByID } from 'components/Services/Api';
+import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
-  //   const [moviesTrendingList, setTrendingList] = useState([]);
-  console.log(movie);
+
   useEffect(() => {
     getMovieByID(movieId)
       .then(setMovie)
@@ -24,8 +24,7 @@ export const MovieDetails = () => {
 
   return (
     <MainContainer>
-      <div>{movieId}</div>
-      {/* <MovieInfo moviesList={moviesTrendingList} /> */}
+      <MovieInfo movie={movie} />
     </MainContainer>
   );
 };
