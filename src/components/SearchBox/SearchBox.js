@@ -1,15 +1,55 @@
-import { Wrapper, SearchInput } from './SearchBox.styled';
+import { toast } from 'react-toastify';
+import { Formik, ErrorMessage } from 'formik';
+// import * as yup from 'yup';
 
-export const SearchBox = ({ value, onChange }) => {
+import {
+  Wrapper,
+  SearchForm,
+  SearchFormInput,
+  SearchFormButton,
+  SearchFormLabel,
+} from './SearchBox.styled';
+
+// let schema = yup.object().shape({
+//   query: yup.string().required(),
+// });
+
+export const SearchBox = ({ onSubmit }) => {
+  const handleFormSubmit = (values, { resetForm }) => {
+    // console.log(values.query);
+    // console.log(values);
+    if (values.query.trim() === '') {
+      return toast.error('Please enter something!');
+      // return alert('Please, add word');
+    }
+    onSubmit(values);
+    resetForm();
+  };
+
   return (
-    <Wrapper>
-      <SearchInput
-        name="query"
-        type="text"
-        value={value}
-        placeholder="Search movie"
-        onChange={e => onChange(e.target.value)}
-      />
-    </Wrapper>
+    <Formik
+      initialValues={{
+        query: '',
+      }}
+      // validationSchema={schema}
+      onSubmit={handleFormSubmit}
+    >
+      <Wrapper>
+        <SearchForm>
+          <SearchFormInput
+            name="query"
+            type="text"
+            autoComplete="off"
+            autoFocus
+            // value={value}
+            placeholder="Search movie"
+          />
+          <SearchFormButton type="submit">
+            <SearchFormLabel>Search</SearchFormLabel>
+          </SearchFormButton>
+          <ErrorMessage component="span" name="query" />
+        </SearchForm>
+      </Wrapper>
+    </Formik>
   );
 };

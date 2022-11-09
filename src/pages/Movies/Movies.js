@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchBox } from 'components/SearchBox/SearchBox';
@@ -22,14 +24,16 @@ export const Movies = () => {
       .catch(error => error.message);
   }, [query]);
 
-  const updateQueryString = query => {
+  const updateQueryString = value => {
+    const { query } = value;
     const nextParams = query !== '' ? { query } : {};
     setSearchParams(nextParams);
   };
 
   return (
     <MainContainer>
-      <SearchBox onChange={updateQueryString} />
+      <ToastContainer autoClose={3000} theme="dark" />
+      <SearchBox onSubmit={updateQueryString} />
       {moviesSearchList.length > 0 && (
         <MoviesList moviesList={moviesSearchList} />
       )}
