@@ -13,16 +13,16 @@ import { apiSearchQuery } from 'components/Services/Api';
 export const Movies = () => {
   const [moviesSearchList, setSearchList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
+  const queryParam = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (!query) {
+    if (!queryParam) {
       return;
     }
-    apiSearchQuery(query)
+    apiSearchQuery(queryParam)
       .then(setSearchList)
       .catch(error => error.message);
-  }, [query]);
+  }, [queryParam]);
 
   const updateQueryString = value => {
     const { query } = value;

@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import { List, Item } from './MoviesList.styled';
+import { List, Item, MovieLink } from './MoviesList.styled';
 
 export const MoviesList = ({ moviesList }) => {
   return (
@@ -7,7 +6,7 @@ export const MoviesList = ({ moviesList }) => {
       <List>
         {moviesList.map(({ id, title }) => (
           <Item key={id}>
-            <NavLink to={`${id}`}>{title}</NavLink>
+            <MovieLink to={`${id}`}>{title}</MovieLink>
           </Item>
         ))}
       </List>
