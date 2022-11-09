@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MovieCard = styled.div`
@@ -8,6 +7,7 @@ export const MovieCard = styled.div`
 `;
 
 export const MoviePoster = styled.img`
+  display: block;
   border-radius: 15px;
 
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),

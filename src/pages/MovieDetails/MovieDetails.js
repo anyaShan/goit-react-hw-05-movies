@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { getMovieByID } from 'components/Services/Api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
+import { MovieInfoAditional } from 'components/MovieInfoAditional/MovieInfoAditional';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -25,6 +26,7 @@ export const MovieDetails = () => {
   return (
     <MainContainer>
       <MovieInfo movie={movie} />
+      <MovieInfoAditional />
     </MainContainer>
   );
 };

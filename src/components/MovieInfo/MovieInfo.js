@@ -17,52 +17,41 @@ export const MovieInfo = ({ movie }) => {
   } = movie;
 
   return (
-    <>
-      <MovieCard>
-        <MoviePoster
-          src={
-            path
-              ? `https://image.tmdb.org/t/p/w300${path}`
-              : `https://i.pinimg.com/originals/7b/3f/ba/7b3fba069b7942021bf680e2d3170bf8.jpg`
-          }
-          alt={`${title}`}
-        />
-        <InfoCard>
-          <h2>
-            {title} {year ? `(${year.slice(0, 4)})` : null}
-          </h2>
-          <InfoThumb>
-            <p>User Score: {score * 10}%</p>
+    <MovieCard>
+      <MoviePoster
+        src={
+          path
+            ? `https://image.tmdb.org/t/p/w300${path}`
+            : `https://i.pinimg.com/originals/7b/3f/ba/7b3fba069b7942021bf680e2d3170bf8.jpg`
+        }
+        alt={`${title}`}
+      />
+      <InfoCard>
+        <h2>
+          {title} {year ? `(${year.slice(0, 4)})` : null}
+        </h2>
+        <InfoThumb>
+          <p>User Score: {(score * 10).toFixed(2)}%</p>
 
-            {overview ? (
-              <div>
-                <h3>Overview</h3>
-                <p>{overview}</p>
-              </div>
-            ) : null}
+          {overview ? (
+            <div>
+              <h3>Overview</h3>
+              <p>{overview}</p>
+            </div>
+          ) : null}
 
-            {genres ? (
-              <div>
-                <h3>Genres</h3>
-                <GenresList>
-                  {genres
-                    ? genres.map(({ id, name }) => <li key={id}>{name}</li>)
-                    : null}
-                </GenresList>
-              </div>
-            ) : null}
-          </InfoThumb>
-        </InfoCard>
-      </MovieCard>
-      {/* ============================================= */}
-      <div>
-        <h3>Aditional information</h3>
-        <ul>
-          <li>Cast</li>
-          <li>reviews</li>
-        </ul>
-      </div>
-      {/* ============================================= */}
-    </>
+          {genres ? (
+            <div>
+              <h3>Genres</h3>
+              <GenresList>
+                {genres
+                  ? genres.map(({ id, name }) => <li key={id}>{name}</li>)
+                  : null}
+              </GenresList>
+            </div>
+          ) : null}
+        </InfoThumb>
+      </InfoCard>
+    </MovieCard>
   );
 };
