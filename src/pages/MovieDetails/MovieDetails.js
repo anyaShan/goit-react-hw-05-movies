@@ -1,11 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { getMovieByID } from 'components/Services/Api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { MovieInfoAditional } from 'components/MovieInfoAditional/MovieInfoAditional';
+import { BackLink, Icon } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
+  const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
 
@@ -22,9 +26,13 @@ export const MovieDetails = () => {
   //     .catch(error => error.message);
   // }, [movieId]);
   // ================================================
-
+  // console.log(location.state.from);
   return (
     <MainContainer>
+      <BackLink to={location.state.from}>
+        <Icon />
+        Back to movies
+      </BackLink>
       <MovieInfo movie={movie} />
       <MovieInfoAditional />
     </MainContainer>

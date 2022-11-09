@@ -23,7 +23,7 @@ export const SearchBox = ({ onSubmit }) => {
       // return alert('Please, add word');
     }
     onSubmit(values);
-    resetForm();
+    // resetForm();
   };
 
   return (
