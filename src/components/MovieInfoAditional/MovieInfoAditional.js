@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import {
   AditionalCard,
   List,
@@ -11,12 +12,13 @@ export const MovieInfoAditional = () => {
       <h3>Aditional information</h3>
       <List>
         <Item>
-          <AditionLink>Cast</AditionLink>
+          <AditionLink to="cast">Cast</AditionLink>
         </Item>
         <Item>
-          <AditionLink>Reviews</AditionLink>
+          <AditionLink to="reviews">Reviews</AditionLink>
         </Item>
       </List>
+      <Outlet />
     </AditionalCard>
   );
 };

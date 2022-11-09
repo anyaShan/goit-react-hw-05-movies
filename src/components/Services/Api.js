@@ -34,9 +34,8 @@ export async function getMovieByID(id) {
   return respons.data;
 }
 
-// https://api.themoviedb.org/3/search/movie?api_key=47d4e1a1a10be98644abcf2b38417f6e&language=en-US&query=dor&page=1&include_adult=false
-
-// // https://api.themoviedb.org/3/trending/movie/day?api_key=47d4e1a1a10be98644abcf2b38417f6e
-
-// // https://api.themoviedb.org/3/movie/550?api_key=47d4e1a1a10be98644abcf2b38417f6e
-// // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
+export async function getMovieCredits(id) {
+  const fetch = `movie/${id}/credits?api_key=${PIXABAY_KEY}&language=en-US`;
+  const respons = await axios.get(fetch);
+  return respons.data.cast;
+}

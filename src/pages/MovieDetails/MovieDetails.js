@@ -12,6 +12,7 @@ export const MovieDetails = () => {
   const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
+  const backLinkHref = location.state?.from ?? '/movies';
 
   useEffect(() => {
     getMovieByID(movieId)
@@ -29,7 +30,7 @@ export const MovieDetails = () => {
   // console.log(location.state.from);
   return (
     <MainContainer>
-      <BackLink to={location.state.from}>
+      <BackLink to={backLinkHref}>
         <Icon />
         Back to movies
       </BackLink>
