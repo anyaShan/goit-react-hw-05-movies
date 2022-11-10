@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Loader } from 'components/Loader/Loader';
 import {
   AditionalCard,
   List,
@@ -19,7 +20,7 @@ export const MovieInfoAditional = () => {
           <AditionLink to="reviews">Reviews</AditionLink>
         </Item>
       </List>
-      <Suspense fallback={<div>Loading page...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </AditionalCard>
