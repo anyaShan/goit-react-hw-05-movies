@@ -3,6 +3,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchBox } from 'components/SearchBox/SearchBox';
@@ -22,7 +23,14 @@ export const Movies = () => {
       return;
     }
     apiSearchQuery(queryParam)
-      .then(setSearchList)
+      .then(respons => {
+        console.log(respons);
+        const { results } = respons;
+        if (results.length === 0) {
+          return toast.error('You enter invalid search request');
+        }
+        setSearchList([...results]);
+      })
       .catch(error => error.message);
   }, [queryParam]);
 

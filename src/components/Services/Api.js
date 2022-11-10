@@ -24,7 +24,7 @@ export async function apiSearchQuery(query) {
   const fetch = `search/movie?api_key=${PIXABAY_KEY}&language=en-US&query=${query}&include_adult=false`;
   const respons = await axios.get(fetch);
   //   console.log(respons.data.results);
-  return respons.data.results;
+  return respons.data;
 }
 
 export async function getMovieByID(id) {
