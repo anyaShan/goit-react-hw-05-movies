@@ -1,13 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieCredits } from 'components/Services/Api';
-import { List, Item } from './Cast.styled';
+import { CastCard, List, Item, Error } from './Cast.styled';
 
 export const Cast = () => {
   const { movieId } = useParams();
   const [movieCast, setMovieCast] = useState([]);
-
-  console.log(movieCast);
 
   useEffect(() => {
     getMovieCredits(movieId)
@@ -16,9 +14,9 @@ export const Cast = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <CastCard>
       <List>
-        {movieCast &&
+        {movieCast.length > 0 ? (
           movieCast.map(({ id, character, name, profile_path: path }) => (
             <Item key={id}>
               <img
@@ -32,8 +30,11 @@ export const Cast = () => {
               <b>{name}</b>
               <p>Character: {character}</p>
             </Item>
-          ))}
+          ))
+        ) : (
+          <Error>The movie has no cast</Error>
+        )}
       </List>
-    </div>
+    </CastCard>
   );
 };

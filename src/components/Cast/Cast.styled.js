@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
 export const CastCard = styled.div`
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 15px; */
+  padding-top: 15px;
+  border-top: 3px solid rgb(52, 162, 212);
 `;
 
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+  gap: 10px;
+  justify-content: space-between;
 
   /* font-weight: 600;
   font-size: 16px;
@@ -50,4 +49,8 @@ export const Item = styled.li`
     line-height: 1;
     color: grey;
   }
+`;
+
+export const Error = styled.div`
+  text-align: center;
 `;

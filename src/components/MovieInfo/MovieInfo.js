@@ -31,7 +31,7 @@ export const MovieInfo = ({ movie }) => {
           {title} {year ? `(${year.slice(0, 4)})` : null}
         </h2>
         <InfoThumb>
-          <p>User Score: {(score * 10).toFixed(2)}%</p>
+          <p>User Score: {score && (score * 10).toFixed(2)}%</p>
 
           {overview ? (
             <div>

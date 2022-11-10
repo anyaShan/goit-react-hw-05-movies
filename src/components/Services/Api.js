@@ -39,3 +39,10 @@ export async function getMovieCredits(id) {
   const respons = await axios.get(fetch);
   return respons.data.cast;
 }
+
+export async function getMovieReviews(id) {
+  const fetch = `movie/${id}/reviews?api_key=${PIXABAY_KEY}&language=en-US`;
+  const respons = await axios.get(fetch);
+  console.log(respons.data.results);
+  return respons.data.results;
+}
