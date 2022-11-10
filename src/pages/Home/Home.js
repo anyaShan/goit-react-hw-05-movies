@@ -3,7 +3,7 @@ import { apiTrending } from 'components/Services/Api';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
-export const Home = () => {
+const Home = () => {
   const [moviesTrendingList, setTrendingList] = useState([]);
 
   useEffect(() => {
@@ -18,3 +18,5 @@ export const Home = () => {
     </MainContainer>
   );
 };
+
+export default Home;

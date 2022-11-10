@@ -9,7 +9,7 @@ import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { MovieInfoAditional } from 'components/MovieInfoAditional/MovieInfoAditional';
 import { BackLink, Icon } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
@@ -45,3 +45,5 @@ MovieDetails.propTypes = {
   movieId: PropTypes.object,
   location: PropTypes.object,
 };
+
+export default MovieDetails;

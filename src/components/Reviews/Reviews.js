@@ -4,7 +4,7 @@ import { getMovieReviews } from 'components/Services/Api';
 import PropTypes from 'prop-types';
 import { ReviewsCard, List, Item, Thumb, Error } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [movieReviews, setMovieReviews] = useState([]);
 
@@ -38,3 +38,5 @@ export const Reviews = () => {
 Reviews.propTypes = {
   movieId: PropTypes.object,
 };
+
+export default Reviews;

@@ -12,7 +12,7 @@ import { apiSearchQuery } from 'components/Services/Api';
 // import { AppBar } from 'components/AppBar/AppBar';
 // import { LayoutWrap } from './Layout.stuled';
 
-export const Movies = () => {
+const Movies = () => {
   const location = useLocation();
   const [moviesSearchList, setSearchList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,3 +49,5 @@ export const Movies = () => {
     </MainContainer>
   );
 };
+
+export default Movies;

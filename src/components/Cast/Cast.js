@@ -4,7 +4,7 @@ import { getMovieCredits } from 'components/Services/Api';
 import PropTypes from 'prop-types';
 import { CastCard, List, Item, Error } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [movieCast, setMovieCast] = useState([]);
 
@@ -43,3 +43,5 @@ export const Cast = () => {
 Cast.propTypes = {
   movieId: PropTypes.object,
 };
+
+export default Cast;
