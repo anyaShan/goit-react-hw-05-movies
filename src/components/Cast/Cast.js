@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieCredits } from 'components/Services/Api';
+import PropTypes from 'prop-types';
 import { CastCard, List, Item, Error } from './Cast.styled';
 
 export const Cast = () => {
@@ -37,4 +38,8 @@ export const Cast = () => {
       </List>
     </CastCard>
   );
+};
+
+Cast.propTypes = {
+  movieId: PropTypes.object,
 };

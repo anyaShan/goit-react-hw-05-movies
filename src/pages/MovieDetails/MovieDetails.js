@@ -1,6 +1,7 @@
 import { useParams, useLocation } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { getMovieByID } from 'components/Services/Api';
@@ -38,4 +39,9 @@ export const MovieDetails = () => {
       <MovieInfoAditional />
     </MainContainer>
   );
+};
+
+MovieDetails.propTypes = {
+  movieId: PropTypes.object,
+  location: PropTypes.object,
 };

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieReviews } from 'components/Services/Api';
+import PropTypes from 'prop-types';
 import { ReviewsCard, List, Item, Thumb, Error } from './Reviews.styled';
 
 export const Reviews = () => {
@@ -32,4 +33,8 @@ export const Reviews = () => {
       </List>
     </ReviewsCard>
   );
+};
+
+Reviews.propTypes = {
+  movieId: PropTypes.object,
 };

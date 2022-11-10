@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { List, Item, MovieLink } from './MoviesList.styled';
 
 export const MoviesList = ({ moviesList, state }) => {
@@ -14,4 +15,11 @@ export const MoviesList = ({ moviesList, state }) => {
       </List>
     </div>
   );
+};
+
+MoviesList.propTypes = {
+  list: PropTypes.shape({
+    moviesList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    state: PropTypes.object,
+  }),
 };

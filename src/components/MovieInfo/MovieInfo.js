@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   MovieCard,
   MoviePoster,
@@ -54,4 +55,8 @@ export const MovieInfo = ({ movie }) => {
       </InfoCard>
     </MovieCard>
   );
+};
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object.isRequired,
 };

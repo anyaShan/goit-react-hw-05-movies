@@ -24,7 +24,6 @@ export const Movies = () => {
     }
     apiSearchQuery(queryParam)
       .then(respons => {
-        console.log(respons);
         const { results } = respons;
         if (results.length === 0) {
           return toast.error('You enter invalid search request');

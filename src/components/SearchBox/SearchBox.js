@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { Formik, ErrorMessage } from 'formik';
 // import * as yup from 'yup';
@@ -52,4 +53,8 @@ export const SearchBox = ({ onSubmit }) => {
       </Wrapper>
     </Formik>
   );
+};
+
+SearchBox.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
