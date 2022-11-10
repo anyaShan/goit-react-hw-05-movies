@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +13,6 @@ import { apiSearchQuery } from 'components/Services/Api';
 // import { LayoutWrap } from './Layout.stuled';
 
 const Movies = () => {
-  const location = useLocation();
   const [moviesSearchList, setSearchList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const queryParam = searchParams.get('query') ?? '';
@@ -44,7 +43,7 @@ const Movies = () => {
       <ToastContainer autoClose={3000} theme="dark" />
       <SearchBox onSubmit={updateQueryString} />
       {moviesSearchList.length > 0 && (
-        <MoviesList moviesList={moviesSearchList} state={{ from: location }} />
+        <MoviesList moviesList={moviesSearchList} />
       )}
     </MainContainer>
   );
