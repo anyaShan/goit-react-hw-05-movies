@@ -36,7 +36,7 @@ const MovieDetails = () => {
         Back to movies
       </BackLink>
       <MovieInfo movie={movie} />
-      <MovieInfoAditional />
+      <MovieInfoAditional backToList={backLinkHref} />
     </MainContainer>
   );
 };
